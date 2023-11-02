@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Temperature Convertor</title>
+        <style>
+            body{
+                background-image:url("https://wallpaperaccess.com/full/3519253.jpg");
+            }
+            h1{
+                color:blue;
+            }
+             .hii{
+                margin-left:30em;
+                margin-top:18em;
+               position:fixed;
+                
+            }
+            #d1{
+                padding:10px;
+                height:45px;
+                width:170px;
+                font-size:20px;
+            }
+            #txt{
+               height:45px;
+               width:125px;
+               font-size:25px;
+            }
+            #txt1{
+                height:45px;
+                width:125px;
+                font-size:25px;
+             }
+             #p{
+                font-size:28px;
+             }
+        </style>
+    </head>
+    <body>
+        <script>
+           function change(){
+            const ip = parseFloat(document.getElementById("txt").value);
+            const selected=document.getElementById("d1").value;
+            let converted;
+            let Text = "";
+            switch(selected){
+                case "Farhenhit":
+                converted = (ip * 9/5) + 32;
+                Text = `${ip}°c is changed to Farhenhit`;
+                break;
+                case "Celsius":
+                converted= (ip - 32) * 5/9;
+                Text = `${ip}°F is changed to Celsius`;
+                break;
+                case "kelvin":
+                converted = (ip - 32) * 5/9 + 273;
+                Text=`${ip}°F is changed to kelvin`;
+                break;
+            default:
+                converted = "Invalid unit";
+        }
+        document.getElementById("txt1").value = converted.toFixed(2);
+        document.getElementById("p").textContent = Text;
+    } 
+        </script>
+     
+        <div class="hii">
+         <h1 >Temperature Converter</h1>
+         <input  id="txt" type="text">
+         <input  id="txt1" type="text">
+         <select id="d1" onchange="change()">
+            <option id="one" value="Farhenhit"><p>Farhenhit(°F)</p></option>
+            <option id="two" value="Celsius"><p>Celsius(°C)</p></option>
+            <option id="three" value="kelvin"><p>Kelvin(K)</p></option>
+         </select>
+         <h1 id="p"></h1>
+    </div>
+      
+    </body>
+</html>
